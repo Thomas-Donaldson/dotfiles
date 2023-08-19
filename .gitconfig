@@ -1,0 +1,9 @@
+[user]
+	name = Thomas Donaldson
+	email = 30123376+Thomas-Donaldson@users.noreply.github.com
+[core]
+	editor = vi
+[credential]
+	credentialStore = gpg
+[init]
+	defaultBranch = main

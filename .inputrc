@@ -1,0 +1,2 @@
+# In Eat, the active region for reverse-i-search has a white font that I can't read with the white background of Emacs; see variables in readline manpage
+set enable-active-region Off
