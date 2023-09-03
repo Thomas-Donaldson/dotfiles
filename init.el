@@ -22,6 +22,7 @@
 
 (require 'package)
 (setq package-quickstart t)
+;; (setq package-install-upgrade-built-in t)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 						 ("org" . "https://orgmode.org/elpa/")
@@ -117,6 +118,7 @@
 		meow-cursor-type-normal '(bar . 2)
 		meow-cursor-type-default '(bar . 2)
 		meow-expand-exclude-mode-list (remq 'org-mode meow-expand-exclude-mode-list))
+  (push '(compilation-mode . normal) meow-mode-state-list)
 		
   :custom-face
   (meow-normal-cursor ((t (:background "RoyalBlue" :inherit unspecified))))
@@ -200,6 +202,7 @@
   ;; https://orgmode.org/worg/org-contrib/babel/languages/index.html
   (org-babel-do-load-languages 'org-babel-load-languages
 							   '((C . t)
+								 (nix . t)
 								 (java . t)
 								 (shell . t)
 								 (python . t)
@@ -323,6 +326,11 @@
   :hook
   (c++-mode . eglot-ensure))
 
+(use-package nix-mode
+  :mode (rx ".nix" eos))
+
+(use-package ob-nix)
+
 (use-package company
   :init
   (setq company-show-quick-access t)
@@ -379,6 +387,7 @@
 	  scroll-conservatively 101
 	  scroll-preserve-screen-position t
 
+	  vc-follow-symlinks t
       isearch-repeat-on-direction-change t
       sentence-end-double-space nil
 	  display-line-numbers-width-start t
